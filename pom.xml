@@ -22,7 +22,7 @@ under the License.
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.wso2.carbon</groupId>
-  <artifactId>carbon</artifactId>
+  <artifactId>carbon-parent</artifactId>
   <version>4.3.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -70,7 +70,7 @@ under the License.
      <developerConnection>scm:git:git@github.com:wso2/carbon-parent.git</developerConnection>
   </scm>
 
-  <distributionManagement>
+  <!--   <distributionManagement>
     <repository>
       <id>wso2.releases.https</id>
       <name>WSO2 Release Distribution Repository</name>
@@ -81,22 +81,24 @@ under the License.
       <name>${distMgmtSnapshotsName}</name>
       <url>${distMgmtSnapshotsUrl}</url>
     </snapshotRepository>
-  </distributionManagement>
+  </distributionManagement> --> 
 
   <properties>
+      <wso2carbon.jdk.version>1.6</wso2carbon.jdk.version>
    <!-- <distMgmtSnapshotsName>WSO2 Development Snapshot Repository</distMgmtSnapshotsName>
     <distMgmtSnapshotsUrl>https://repository.apache.org/content/repositories/snapshots</distMgmtSnapshotsUrl>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
     <gpg.useagent>true</gpg.useagent>
-    <arguments /> --> 
+    <arguments />   --> 
   </properties>
+  
+  <dependencyManagement>
+    <!--  Platform related 3rd party plugins should define here -->
+  </dependencyManagement>   
+     
 
   <build>
-    <dependencyManagement>
-    <!--  Platform related 3rd party plugins should define here -->
-    </dependencyManagement>     
-     
     <pluginManagement>
       <plugins>
         <!-- set versions of common plugins for reproducibility, ordered alphabetically -->
@@ -262,6 +264,17 @@ under the License.
           </execution>
         </executions>
       </plugin>
+      
+      <!-- Define supported JDK base version -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${wso2carbon.jdk.version}</source>
+          <target>${wso2carbon.jdk.version}</target>
+        </configuration>
+      </plugin>
+      
     </plugins>
   </build>
 
@@ -270,7 +283,7 @@ under the License.
     <profile>
       <id>wso2-release</id>
       <build>
-        <plugins>
+       <plugins>
           <!-- Create a source-release artifact that contains the fully buildable 
                project directory source structure. This is the artifact which is 
                the official subject of any release vote. -->
@@ -299,9 +312,9 @@ under the License.
                 </configuration>
               </execution>
             </executions>
-          </plugin>
+          </plugin> -->
           <!-- We want to deploy the artifact to a staging location for perusal -->
-          <plugin>
+         <!-- <plugin>
             <inherited>true</inherited>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-deploy-plugin</artifactId>
@@ -332,9 +345,9 @@ under the License.
                 </goals>
               </execution>
             </executions>
-          </plugin>
+          </plugin> -->
           <!-- We want to sign the artifact, the POM, and all attached artifacts -->
-          <plugin>
+          <!-- <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <configuration>
@@ -348,11 +361,10 @@ under the License.
                 </goals>
               </execution>
             </executions>
-          </plugin>
+          </plugin>  -->
         </plugins>
       </build>
-    </profile>  -->
-    <!-- END SNIPPET: release-profile -->
+    </profile> 
   </profiles>
 </project>
 
