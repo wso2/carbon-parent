@@ -158,8 +158,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.2</version>
                     <configuration>
-                        <source>${maven.compiler.source}</source>
-                        <target>${maven.compiler.target}</target>
+                        <source>${wso2.maven.compiler.source}</source>
+                        <target>${wso2.maven.compiler.target}</target>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -405,6 +405,9 @@
     </profiles>
 
     <properties>
-        <wso2carbon.jdk.version>1.6</wso2carbon.jdk.version>
+        <wso2.maven.compiler.source>1.6</wso2.maven.compiler.source>
+        <wso2.maven.compiler.target>1.6</wso2.maven.compiler.target>
+        <arguments/>
+        <sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
     </properties>
 </project>
