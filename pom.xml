@@ -40,6 +40,15 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>WSO2 Developer</name>
+            <email>dev@wso2.org</email>
+            <organization>WSO2</organization>
+            <organizationUrl>http://www.wso2.org/</organizationUrl>
+        </developer>
+    </developers>
+
     <repositories>
         <!-- WSO2 released artifact repository -->
         <repository>
