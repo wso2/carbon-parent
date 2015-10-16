@@ -111,6 +111,17 @@
                 <enabled>false</enabled>
             </releases>
         </pluginRepository>
+
+        <pluginRepository>
+            <id>wso2-nexus</id>
+            <name>WSO2 internal Repository</name>
+            <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </pluginRepository>
     </pluginRepositories>
 
     <distributionManagement>
@@ -144,28 +155,60 @@
   </scm>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>${maven.wagon.ssh.version}</version>
+            </extension>
+        </extensions>
         <pluginManagement>
             <plugins>
                 <!-- set versions of common plugins for reproducibility, ordered alphabetically -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-antrun-plugin</artifactId>
-                    <version>1.7</version>
+                    <version>${maven.antrun.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.5.1</version>
+                    <version>${maven.assembly.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>validate</id>
+                            <phase>validate</phase>
+                            <configuration>
+                                <configLocation>
+                                    https://raw.githubusercontent.com/wso2/code-quality-tools/master/checkstyle/checkstyle.xml
+                                </configLocation>
+                                <suppressionsLocation>
+                                    https://raw.githubusercontent.com/wso2/code-quality-tools/master/checkstyle/suppressions.xml
+                                </suppressionsLocation>
+                                <encoding>UTF-8</encoding>
+                                <consoleOutput>true</consoleOutput>
+                                <failsOnError>true</failsOnError>
+                                <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                            </configuration>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>2.6.1</version>
+                    <version>${maven.clean.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.2</version>
+                    <version>${maven.compiler.plugin.version}</version>
                     <configuration>
                         <source>${wso2.maven.compiler.source}</source>
                         <target>${wso2.maven.compiler.target}</target>
@@ -174,47 +217,66 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.9</version>
+                    <version>${maven.dependency.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
+                    <version>${maven.dependency.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-docck-plugin</artifactId>
-                    <version>1.0</version>
+                    <version>${maven.docck.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>1.3.1</version>
+                    <version>${maven.enforcer.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>2.18</version>
+                    <version>${maven.failsafe.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <configuration>
+                        <effort>Max</effort>
+                        <threshold>Low</threshold>
+                        <xmlOutput>true</xmlOutput>
+                        <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>analyze-compile</id>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>1.5</version>
+                    <version>${maven.gpg.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.2</version>
+                    <version>${maven.install.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-invoker-plugin</artifactId>
-                    <version>1.9</version>
+                    <version>${maven.invoker.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.5</version>
+                    <version>${maven.jar.plugin.version}</version>
                     <configuration>
                         <archive>
                             <manifest>
@@ -227,78 +289,78 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.1</version>
+                    <version>${maven.javadoc.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-plugin-plugin</artifactId>
-                    <version>3.3</version>
+                    <version>${maven.plugin.plugin.version}</version>
                 </plugin>
                 <!-- START SNIPPET: release-plugin-configuration -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.1</version>
+                    <version>${maven.release.plugin.version}</version>
                 </plugin>
                 <!-- END SNIPPET: release-plugin-configuration -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-remote-resources-plugin</artifactId>
-                    <version>1.5</version>
+                    <version>${maven.remote.resources.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.7</version>
+                    <version>${maven.resources.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-plugin</artifactId>
-                    <version>1.9.2</version>
+                    <version>${maven.scm.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-publish-plugin</artifactId>
-                    <version>1.1</version>
+                    <version>${maven.scm.publish.plugin.version}</version>
                     <!-- last version compatible with Maven 2: latest is configured in profile -->
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.4</version>
+                    <version>${maven.site.plugin.version}</version>
                     <dependencies><!-- TODO remove when upgrading m-site-p to 3.4.1: see MSITE-724 -->
                         <dependency>
                             <groupId>org.apache.maven</groupId>
                             <artifactId>maven-archiver</artifactId>
-                            <version>2.5</version>
+                            <version>${maven.archiver.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
                             <artifactId>plexus-archiver</artifactId>
-                            <version>2.4.4</version>
+                            <version>${plexus.archiver.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>2.4</version>
+                    <version>${maven.source.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.18</version>
+                    <version>${maven.surefire.plugin.version}</version>
                     <!-- keep maven-failsafe-plugin in sync -->
                 </plugin>
                 <plugin>
                     <groupId>org.apache.rat</groupId>
                     <artifactId>apache-rat-plugin</artifactId>
-                    <version>0.11</version>
+                    <version>${apache.rat.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>clirr-maven-plugin</artifactId>
-                    <version>2.6.1</version>
+                    <version>${clirr.maven.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -337,7 +399,7 @@
                             <dependency>
                                 <groupId>org.apache.apache.resources</groupId>
                                 <artifactId>apache-source-release-assembly-descriptor</artifactId>
-                                <version>1.0.4</version>
+                                <version>${apache.source.release.assembly.descriptor.version}</version>
                             </dependency>
                         </dependencies>
                         <executions>
@@ -408,6 +470,39 @@
     </profiles>
 
     <properties>
+        <!-- Maven plugin versions -->
+        <maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
+        <maven.assembly.plugin.version>2.5.5</maven.assembly.plugin.version>
+        <maven.clean.plugin.version>2.6.1</maven.clean.plugin.version>
+        <maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
+        <maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
+        <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+        <maven.docck.plugin.version>1.1</maven.docck.plugin.version>
+        <maven.enforcer.plugin.version>1.4.1</maven.enforcer.plugin.version>
+        <maven.failsafe.plugin.version>2.18.1</maven.failsafe.plugin.version>
+        <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
+        <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
+        <maven.invoker.plugin.version>2.0.0</maven.invoker.plugin.version>
+        <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
+        <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
+        <maven.plugin.plugin.version>3.4</maven.plugin.plugin.version>
+        <maven.remote.resources.plugin.version>1.5</maven.remote.resources.plugin.version>
+        <maven.release.plugin.version>2.5.2</maven.release.plugin.version>
+        <maven.resources.plugin.version>2.7</maven.resources.plugin.version>
+        <maven.scm.plugin.version>1.9.4</maven.scm.plugin.version>
+        <maven.scm.publish.plugin.version>1.1</maven.scm.publish.plugin.version>
+        <maven.site.plugin.version>3.4</maven.site.plugin.version>
+        <maven.source.plugin.version>2.4</maven.source.plugin.version>
+        <maven.surefire.plugin.version>2.18.1</maven.surefire.plugin.version>
+        <apache.rat.plugin.version>0.11</apache.rat.plugin.version>
+        <clirr.maven.plugin.version>2.7</clirr.maven.plugin.version>
+        <apache.source.release.assembly.descriptor.version>1.0.5</apache.source.release.assembly.descriptor.version>
+
+        <!-- Other dependency versions -->
+        <maven.archiver.version>2.5</maven.archiver.version>
+        <plexus.archiver.version>2.4.4</plexus.archiver.version>
+        <maven.wagon.ssh.version>2.10</maven.wagon.ssh.version>
+
         <wso2.maven.compiler.source>1.6</wso2.maven.compiler.source>
         <wso2.maven.compiler.target>1.6</wso2.maven.compiler.target>
         <sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
