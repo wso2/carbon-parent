@@ -497,6 +497,8 @@
         <apache.rat.plugin.version>0.11</apache.rat.plugin.version>
         <clirr.maven.plugin.version>2.7</clirr.maven.plugin.version>
         <apache.source.release.assembly.descriptor.version>1.0.5</apache.source.release.assembly.descriptor.version>
+        <maven.checkstyleplugin.version>2.16</maven.checkstyleplugin.version>
+        <maven.findbugsplugin.version>3.0.2</maven.findbugsplugin.version>
 
         <!-- Other dependency versions -->
         <maven.archiver.version>2.5</maven.archiver.version>
