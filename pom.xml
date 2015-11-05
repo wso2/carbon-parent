@@ -382,6 +382,23 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>${maven.bundle.plugin.groupid}</groupId>
+                <artifactId>${maven.bundle.plugin.artifactid}</artifactId>
+                <extensions>${maven.bundle.plugin.extensions}</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>${pom.artifactId}</Bundle-Name>
+                        <Bundle-Activator>
+                            ${maven.bundle.plugin.activator}
+                        </Bundle-Activator>
+                        <Export-Package>${maven.bundle.plugin.export.package}</Export-Package>
+                        <DynamicImport-Package>${maven.bundle.plugin.dynamic.import.package}</DynamicImport-Package>
+                        <Import-Package>${maven.bundle.plugin.import.package}</Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -509,5 +526,11 @@
         <wso2.maven.compiler.target>1.6</wso2.maven.compiler.target>
         <sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
         <project.scm.id>my-scm-server</project.scm.id>
+
+        <!--Bundle plugin configuration -->
+        <maven.bundle.plugin.artifactid>maven-bundle-plugin</maven.bundle.plugin.artifactid>
+        <maven.bundle.plugin.groupid>org.apache.felix</maven.bundle.plugin.groupid>
+        <maven.bundle.plugin.extensions>true</maven.bundle.plugin.extensions>
+        <maven.bundle.plugin.dynamic.import.package>*</maven.bundle.plugin.dynamic.import.package>
     </properties>
 </project>
