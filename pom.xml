@@ -531,6 +531,5 @@
         <maven.bundle.plugin.artifactid>maven-bundle-plugin</maven.bundle.plugin.artifactid>
         <maven.bundle.plugin.groupid>org.apache.felix</maven.bundle.plugin.groupid>
         <maven.bundle.plugin.extensions>true</maven.bundle.plugin.extensions>
-        <maven.bundle.plugin.dynamic.import.package>*</maven.bundle.plugin.dynamic.import.package>
     </properties>
 </project>
