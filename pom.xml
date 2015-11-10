@@ -385,7 +385,7 @@
             <plugin>
                 <groupId>${maven.bundle.plugin.groupid}</groupId>
                 <artifactId>${maven.bundle.plugin.artifactid}</artifactId>
-                <version>${maven.bundleplugin.version}</version>
+                <version>${maven.bundle.plugin.version}</version>
                 <extensions>${maven.bundle.plugin.extensions}</extensions>
                 <configuration>
                     <obrRepository>${maven.bundle.plugin.obrrepository}</obrRepository>
@@ -535,7 +535,7 @@
         <!--Bundle plugin configuration -->
         <maven.bundle.plugin.artifactid>maven-bundle-plugin</maven.bundle.plugin.artifactid>
         <maven.bundle.plugin.groupid>org.apache.felix</maven.bundle.plugin.groupid>
-        <maven.bundleplugin.version>2.5.4</maven.bundleplugin.version>
+        <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
         <maven.bundle.plugin.vendor>WSO2 Inc</maven.bundle.plugin.vendor>
         <maven.bundle.plugin.extensions>true</maven.bundle.plugin.extensions>
     </properties>
