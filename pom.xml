@@ -558,9 +558,7 @@
         <sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
         <project.scm.id>my-scm-server</project.scm.id>
 
-        <!--Bundle plugin configuration -->
-        <maven.bundle.plugin.artifactid>maven-bundle-plugin</maven.bundle.plugin.artifactid>
-        <maven.bundle.plugin.groupid>org.apache.felix</maven.bundle.plugin.groupid>
+        <!--Maven bundle plugin configuration -->
         <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
         <maven.bundle.plugin.vendor>WSO2 Inc</maven.bundle.plugin.vendor>
         <maven.bundle.plugin.extensions>true</maven.bundle.plugin.extensions>
