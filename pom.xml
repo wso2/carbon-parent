@@ -383,23 +383,49 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>${maven.bundle.plugin.groupid}</groupId>
-                <artifactId>${maven.bundle.plugin.artifactid}</artifactId>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
                 <version>${maven.bundle.plugin.version}</version>
                 <extensions>${maven.bundle.plugin.extensions}</extensions>
                 <configuration>
                     <obrRepository>${maven.bundle.plugin.obrrepository}</obrRepository>
                     <instructions>
-                        <Bundle-Vendor>${maven.bundle.plugin.vendor}</Bundle-Vendor>
-                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
-                        <Bundle-Name>${maven.bundle.plugin.name}</Bundle-Name>
+                        <Bnd-AddXmlToTest>${maven.bundle.plugin.addxmltotest}</Bnd-AddXmlToTest>
+                        <Bnd-LastModified>${maven.bundle.plugin.lastmodified}</Bnd-LastModified>
                         <Bundle-Activator>
                             ${maven.bundle.plugin.activator}
                         </Bundle-Activator>
-                        <Private-Package>${maven.bundle.plugin.private.package}</Private-Package>
-                        <Export-Package>${maven.bundle.plugin.export.package}</Export-Package>
+                        <Bundle-ActivationPolicy>${maven.bundle.plugin.activation.policy}</Bundle-ActivationPolicy>
+                        <Bundle-Blueprint>${maven.bundle.plugin.blueprint}</Bundle-Blueprint>
+                        <Bundle-Category>${maven.bundle.plugin.category}</Bundle-Category>
+                        <Bundle-ClassPath>${maven.bundle.plugin.classpath}</Bundle-ClassPath>
+                        <Bundle-Contributors>${maven.bundle.plugin.contributors}</Bundle-Contributors>
+                        <Bundle-Copyright>${maven.bundle.plugin.copyright}</Bundle-Copyright>
+                        <Bundle-Description>${maven.bundle.plugin.description}</Bundle-Description>
+                        <Bundle-Developers>${maven.bundle.plugin.developers}</Bundle-Developers>
+                        <Bundle-DocURL>${maven.bundle.plugin.docurl}</Bundle-DocURL>
+                        <Bundle-License>${maven.bundle.plugin.license}</Bundle-License>
+                        <Bundle-ManifestVersion>${{maven.bundle.plugin.manifest.version}</Bundle-ManifestVersion>
+                        <Bundle-Name>${maven.bundle.plugin.name}</Bundle-Name>
+                        <Bundle-RequiredExecutionEnvironment>${maven.bundle.plugin.execution.environment}</Bundle-RequiredExecutionEnvironment>
+                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Vendor>${maven.bundle.plugin.vendor}</Bundle-Vendor>
+                        <Conditional-Package>${maven.bundle.plugin.conditional.package}</Conditional-Package>
+                        <Created-By>${maven.bundle.plugin.createdby}</Created-By>
                         <DynamicImport-Package>${maven.bundle.plugin.dynamic.import.package}</DynamicImport-Package>
+                        <Export-Package>${maven.bundle.plugin.export.package}</Export-Package>
+                        <Fragment-Host>${maven.bundle.plugin.fragment.host}</Fragment-Host>
                         <Import-Package>${maven.bundle.plugin.import.package}</Import-Package>
+                        <Include-Resource>${maven.bundle.plugin.include.resource}</Include-Resource>
+                        <Meta-Persistence>${maven.bundle.plugin.meta.persistence}</Meta-Persistence>
+                        <Private-Package>${maven.bundle.plugin.private.package}</Private-Package>
+                        <Provide-Capability>${maven.bundle.plugin.provide.capability}</Provide-Capability>
+                        <Require-Bundle>${maven.bundle.plugin.require.bundle}</Require-Bundle>
+                        <Require-Capability>${maven.bundle.plugin.require.capability}</Require-Capability>
+                        <Service-Component>${maven.bundle.plugin.service.component}</Service-Component>
+                        <Test-Cases>${maven.bundle.plugin.test.cases}</Test-Cases>
+                        <Tool>${maven.bundle.plugin.tool}</Tool>
+                        <Microservices>${maven.bundle.plugin.microservices}</Microservices>
                         <_dsannotations>${maven.bundle.plugin.dsannotations}</_dsannotations>
                     </instructions>
                 </configuration>
