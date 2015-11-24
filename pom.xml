@@ -15,7 +15,9 @@
     specific language governing permissions and limitations
     under the License.-->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2</groupId>
     <artifactId>wso2</artifactId>
@@ -388,45 +390,34 @@
                 <version>${maven.bundle.plugin.version}</version>
                 <extensions>${maven.bundle.plugin.extensions}</extensions>
                 <configuration>
-                    <obrRepository>${maven.bundle.plugin.obrrepository}</obrRepository>
+                    <obrRepository>${obrrepository}</obrRepository>
                     <instructions>
-                        <Bnd-AddXmlToTest>${maven.bundle.plugin.addxmltotest}</Bnd-AddXmlToTest>
-                        <Bnd-LastModified>${maven.bundle.plugin.lastmodified}</Bnd-LastModified>
-                        <Bundle-Activator>
-                            ${maven.bundle.plugin.activator}
-                        </Bundle-Activator>
-                        <Bundle-ActivationPolicy>${maven.bundle.plugin.activation.policy}</Bundle-ActivationPolicy>
-                        <Bundle-Blueprint>${maven.bundle.plugin.blueprint}</Bundle-Blueprint>
-                        <Bundle-Category>${maven.bundle.plugin.category}</Bundle-Category>
-                        <Bundle-ClassPath>${maven.bundle.plugin.classpath}</Bundle-ClassPath>
-                        <Bundle-Contributors>${maven.bundle.plugin.contributors}</Bundle-Contributors>
-                        <Bundle-Copyright>${maven.bundle.plugin.copyright}</Bundle-Copyright>
-                        <Bundle-Description>${maven.bundle.plugin.description}</Bundle-Description>
-                        <Bundle-Developers>${maven.bundle.plugin.developers}</Bundle-Developers>
-                        <Bundle-DocURL>${maven.bundle.plugin.docurl}</Bundle-DocURL>
-                        <Bundle-License>${maven.bundle.plugin.license}</Bundle-License>
-                        <Bundle-ManifestVersion>${{maven.bundle.plugin.manifest.version}</Bundle-ManifestVersion>
-                        <Bundle-Name>${maven.bundle.plugin.name}</Bundle-Name>
-                        <Bundle-RequiredExecutionEnvironment>${maven.bundle.plugin.execution.environment}</Bundle-RequiredExecutionEnvironment>
+                        <Bundle-Activator>${bundle.activator}</Bundle-Activator>
+                        <Bundle-ActivationPolicy>${bundle.activation.policy}</Bundle-ActivationPolicy>
+                        <Bundle-ClassPath>${bundle.classpath}</Bundle-ClassPath>
+                        <Bundle-Contributors>${bundle.contributors}</Bundle-Contributors>
+                        <Bundle-Copyright>WSO2 Inc</Bundle-Copyright>
+                        <Bundle-Description>${project.description}</Bundle-Description>
+                        <Bundle-Developers>${bundle.developers}</Bundle-Developers>
+                        <Bundle-DocURL>${bundle.docurl}</Bundle-DocURL>
+                        <Bundle-License>http://www.apache.org/licenses/LICENSE-2.0.txt</Bundle-License>
+                        <Bundle-Name>${bundle.name}</Bundle-Name>
                         <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
-                        <Bundle-Vendor>${maven.bundle.plugin.vendor}</Bundle-Vendor>
-                        <Conditional-Package>${maven.bundle.plugin.conditional.package}</Conditional-Package>
-                        <Created-By>${maven.bundle.plugin.createdby}</Created-By>
-                        <DynamicImport-Package>${maven.bundle.plugin.dynamic.import.package}</DynamicImport-Package>
-                        <Export-Package>${maven.bundle.plugin.export.package}</Export-Package>
-                        <Fragment-Host>${maven.bundle.plugin.fragment.host}</Fragment-Host>
-                        <Import-Package>${maven.bundle.plugin.import.package}</Import-Package>
-                        <Include-Resource>${maven.bundle.plugin.include.resource}</Include-Resource>
-                        <Meta-Persistence>${maven.bundle.plugin.meta.persistence}</Meta-Persistence>
-                        <Private-Package>${maven.bundle.plugin.private.package}</Private-Package>
-                        <Provide-Capability>${maven.bundle.plugin.provide.capability}</Provide-Capability>
-                        <Require-Bundle>${maven.bundle.plugin.require.bundle}</Require-Bundle>
-                        <Require-Capability>${maven.bundle.plugin.require.capability}</Require-Capability>
-                        <Service-Component>${maven.bundle.plugin.service.component}</Service-Component>
-                        <Test-Cases>${maven.bundle.plugin.test.cases}</Test-Cases>
-                        <Tool>${maven.bundle.plugin.tool}</Tool>
-                        <Microservices>${maven.bundle.plugin.microservices}</Microservices>
-                        <_dsannotations>${maven.bundle.plugin.dsannotations}</_dsannotations>
+                        <Bundle-Vendor>WSO2 Inc</Bundle-Vendor>
+                        <Conditional-Package>${conditional.package}</Conditional-Package>
+                        <DynamicImport-Package>${dynamic.import.package}</DynamicImport-Package>
+                        <Export-Package>${export.package}</Export-Package>
+                        <Fragment-Host>${fragment.host}</Fragment-Host>
+                        <Import-Package>${import.package}</Import-Package>
+                        <Include-Resource>${include.resource}</Include-Resource>
+                        <Meta-Persistence>${meta.persistence}</Meta-Persistence>
+                        <Private-Package>${private.package}</Private-Package>
+                        <Provide-Capability>${provide.capability}</Provide-Capability>
+                        <Require-Bundle>${require.bundle}</Require-Bundle>
+                        <Require-Capability>${require.capability}</Require-Capability>
+                        <Service-Component>${service.component}</Service-Component>
+                        <Microservices>${microservices}</Microservices>
+                        <_dsannotations>${dsannotations}</_dsannotations>
                     </instructions>
                 </configuration>
             </plugin>
@@ -562,6 +553,11 @@
         <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
         <maven.bundle.plugin.vendor>WSO2 Inc</maven.bundle.plugin.vendor>
         <maven.bundle.plugin.extensions>true</maven.bundle.plugin.extensions>
-        <maven.bundle.plugin.include.resource>{maven-resources}</maven.bundle.plugin.include.resource>
+        <include.resource>{maven-resources}</include.resource>
+        <bundle.classpath>.</bundle.classpath>
+        <dsannotations>*</dsannotations>
+        <bundle.contributors>WSO2 Inc</bundle.contributors>
+        <bundle.developers>WSO2 Inc</bundle.developers>
+        <bundle.docurl>https://docs.wso2.com</bundle.docurl>
     </properties>
 </project>
