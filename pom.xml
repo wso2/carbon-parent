@@ -559,5 +559,6 @@
         <bundle.contributors>WSO2 Inc</bundle.contributors>
         <bundle.developers>WSO2 Inc</bundle.developers>
         <bundle.docurl>https://docs.wso2.com</bundle.docurl>
+        <bundle.name>${project.artifactId}</bundle.name>
     </properties>
 </project>
