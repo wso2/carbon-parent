@@ -390,7 +390,7 @@
                 <version>${maven.bundle.plugin.version}</version>
                 <extensions>${maven.bundle.plugin.extensions}</extensions>
                 <configuration>
-                    <obrRepository>${obrrepository}</obrRepository>
+                    <obrRepository>NONE</obrRepository>
                     <instructions>
                         <Bundle-Activator>${bundle.activator}</Bundle-Activator>
                         <Bundle-ActivationPolicy>${bundle.activation.policy}</Bundle-ActivationPolicy>
@@ -560,5 +560,6 @@
         <bundle.developers>WSO2 Inc</bundle.developers>
         <bundle.docurl>https://docs.wso2.com</bundle.docurl>
         <bundle.name>${project.artifactId}</bundle.name>
+        <import.package>*</import.package>
     </properties>
 </project>
