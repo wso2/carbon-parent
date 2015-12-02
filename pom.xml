@@ -15,7 +15,9 @@
     specific language governing permissions and limitations
     under the License.-->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2</groupId>
     <artifactId>wso2</artifactId>
@@ -382,6 +384,43 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>${maven.bundle.plugin.version}</version>
+                <extensions>${maven.bundle.plugin.extensions}</extensions>
+                <configuration>
+                    <obrRepository>NONE</obrRepository>
+                    <instructions>
+                        <Bundle-Activator>${bundle.activator}</Bundle-Activator>
+                        <Bundle-ActivationPolicy>${bundle.activation.policy}</Bundle-ActivationPolicy>
+                        <Bundle-ClassPath>${bundle.classpath}</Bundle-ClassPath>
+                        <Bundle-Contributors>${bundle.contributors}</Bundle-Contributors>
+                        <Bundle-Copyright>WSO2 Inc</Bundle-Copyright>
+                        <Bundle-Description>${project.description}</Bundle-Description>
+                        <Bundle-Developers>${bundle.developers}</Bundle-Developers>
+                        <Bundle-DocURL>${bundle.docurl}</Bundle-DocURL>
+                        <Bundle-License>http://www.apache.org/licenses/LICENSE-2.0.txt</Bundle-License>
+                        <Bundle-Name>${bundle.name}</Bundle-Name>
+                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Vendor>WSO2 Inc</Bundle-Vendor>
+                        <Conditional-Package>${conditional.package}</Conditional-Package>
+                        <DynamicImport-Package>${dynamic.import.package}</DynamicImport-Package>
+                        <Export-Package>${export.package}</Export-Package>
+                        <Fragment-Host>${fragment.host}</Fragment-Host>
+                        <Import-Package>${import.package}</Import-Package>
+                        <Include-Resource>${include.resource}</Include-Resource>
+                        <Meta-Persistence>${meta.persistence}</Meta-Persistence>
+                        <Private-Package>${private.package}</Private-Package>
+                        <Provide-Capability>${provide.capability}</Provide-Capability>
+                        <Require-Bundle>${require.bundle}</Require-Bundle>
+                        <Require-Capability>${require.capability}</Require-Capability>
+                        <Service-Component>${service.component}</Service-Component>
+                        <Microservices>${microservices}</Microservices>
+                        <_dsannotations>${dsannotations}</_dsannotations>
+                    </instructions>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -509,5 +548,18 @@
         <wso2.maven.compiler.target>1.6</wso2.maven.compiler.target>
         <sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
         <project.scm.id>my-scm-server</project.scm.id>
+
+        <!--Maven bundle plugin configuration -->
+        <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
+        <maven.bundle.plugin.vendor>WSO2 Inc</maven.bundle.plugin.vendor>
+        <maven.bundle.plugin.extensions>true</maven.bundle.plugin.extensions>
+        <include.resource>{maven-resources}</include.resource>
+        <bundle.classpath>.</bundle.classpath>
+        <dsannotations>*</dsannotations>
+        <bundle.contributors>WSO2 Inc</bundle.contributors>
+        <bundle.developers>WSO2 Inc</bundle.developers>
+        <bundle.docurl>https://docs.wso2.com</bundle.docurl>
+        <bundle.name>${project.artifactId}</bundle.name>
+        <import.package>*</import.package>
     </properties>
 </project>
