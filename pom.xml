@@ -402,7 +402,7 @@
                         <Bundle-DocURL>${bundle.docurl}</Bundle-DocURL>
                         <Bundle-License>http://www.apache.org/licenses/LICENSE-2.0.txt</Bundle-License>
                         <Bundle-Name>${bundle.name}</Bundle-Name>
-                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Vendor>WSO2 Inc</Bundle-Vendor>
                         <Conditional-Package>${conditional.package}</Conditional-Package>
                         <DynamicImport-Package>${dynamic.import.package}</DynamicImport-Package>
