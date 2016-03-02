@@ -152,7 +152,7 @@
         <url>https://github.com/wso2/carbon-parent.git</url>
         <developerConnection>scm:git:https://github.com/wso2/carbon-parent.git</developerConnection>
       <tag>HEAD</tag>
-  </scm>
+    </scm>
 
     <build>
         <extensions>
@@ -330,18 +330,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
                     <version>${maven.site.plugin.version}</version>
-                    <dependencies><!-- TODO remove when upgrading m-site-p to 3.4.1: see MSITE-724 -->
-                        <dependency>
-                            <groupId>org.apache.maven</groupId>
-                            <artifactId>maven-archiver</artifactId>
-                            <version>${maven.archiver.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-archiver</artifactId>
-                            <version>${plexus.archiver.version}</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -415,7 +403,6 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>${maven.bundle.plugin.version}</version>
                 <extensions>${maven.bundle.plugin.extensions}</extensions>
                 <configuration>
                     <obrRepository>NONE</obrRepository>
@@ -461,6 +448,7 @@
                          project directory source structure. This is the artifact which is
                          the official subject of any release vote. -->
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-assembly-plugin</artifactId>
                         <dependencies>
                             <dependency>
@@ -539,14 +527,14 @@
     <properties>
         <!-- Maven plugin versions -->
         <maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
-        <maven.assembly.plugin.version>2.5.5</maven.assembly.plugin.version>
-        <maven.clean.plugin.version>2.6.1</maven.clean.plugin.version>
-        <maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
+        <maven.assembly.plugin.version>2.6</maven.assembly.plugin.version>
+        <maven.clean.plugin.version>3.0.0</maven.clean.plugin.version>
+        <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
         <maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
         <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
         <maven.docck.plugin.version>1.1</maven.docck.plugin.version>
         <maven.enforcer.plugin.version>1.4.1</maven.enforcer.plugin.version>
-        <maven.failsafe.plugin.version>2.18.1</maven.failsafe.plugin.version>
+        <maven.failsafe.plugin.version>2.19.1</maven.failsafe.plugin.version>
         <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
         <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
         <maven.invoker.plugin.version>2.0.0</maven.invoker.plugin.version>
@@ -554,22 +542,22 @@
         <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
         <maven.plugin.plugin.version>3.4</maven.plugin.plugin.version>
         <maven.remote.resources.plugin.version>1.5</maven.remote.resources.plugin.version>
-        <maven.release.plugin.version>2.5.2</maven.release.plugin.version>
+        <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
         <maven.resources.plugin.version>2.7</maven.resources.plugin.version>
         <maven.scm.plugin.version>1.9.4</maven.scm.plugin.version>
         <maven.scm.publish.plugin.version>1.1</maven.scm.publish.plugin.version>
-        <maven.site.plugin.version>3.4</maven.site.plugin.version>
-        <maven.source.plugin.version>2.4</maven.source.plugin.version>
-        <maven.surefire.plugin.version>2.18.1</maven.surefire.plugin.version>
+        <maven.site.plugin.version>3.5</maven.site.plugin.version>
+        <maven.source.plugin.version>3.0.0</maven.source.plugin.version>
+        <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
         <apache.rat.plugin.version>0.11</apache.rat.plugin.version>
         <clirr.maven.plugin.version>2.7</clirr.maven.plugin.version>
         <apache.source.release.assembly.descriptor.version>1.0.5</apache.source.release.assembly.descriptor.version>
-        <maven.checkstyleplugin.version>2.16</maven.checkstyleplugin.version>
-        <maven.findbugsplugin.version>3.0.2</maven.findbugsplugin.version>
+        <maven.checkstyleplugin.version>2.17</maven.checkstyleplugin.version>
+        <maven.findbugsplugin.version>3.0.3</maven.findbugsplugin.version>
 
         <!-- Other dependency versions -->
-        <maven.archiver.version>2.5</maven.archiver.version>
-        <plexus.archiver.version>2.4.4</plexus.archiver.version>
+        <maven.archiver.version>3.0.0</maven.archiver.version>
+        <plexus.archiver.version>3.0.3</plexus.archiver.version>
         <maven.wagon.ssh.version>2.10</maven.wagon.ssh.version>
 
         <wso2.maven.compiler.source>1.6</wso2.maven.compiler.source>
@@ -578,7 +566,7 @@
         <project.scm.id>my-scm-server</project.scm.id>
 
         <!--Maven bundle plugin configuration -->
-        <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
+        <maven.bundle.plugin.version>3.0.1</maven.bundle.plugin.version>
         <maven.bundle.plugin.vendor>WSO2 Inc</maven.bundle.plugin.vendor>
         <maven.bundle.plugin.extensions>true</maven.bundle.plugin.extensions>
         <include.resource>{maven-resources}</include.resource>
