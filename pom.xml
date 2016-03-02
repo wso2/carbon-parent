@@ -544,8 +544,8 @@
         <!-- Other dependency versions -->
         <maven.wagon.ssh.version>2.10</maven.wagon.ssh.version>
 
-        <wso2.maven.compiler.source>1.6</wso2.maven.compiler.source>
-        <wso2.maven.compiler.target>1.6</wso2.maven.compiler.target>
+        <wso2.maven.compiler.source>1.8</wso2.maven.compiler.source>
+        <wso2.maven.compiler.target>1.8</wso2.maven.compiler.target>
         <sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
         <project.scm.id>my-scm-server</project.scm.id>
 
