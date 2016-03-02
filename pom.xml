@@ -541,8 +541,6 @@
         <maven.findbugsplugin.version>3.0.3</maven.findbugsplugin.version>
 
         <!-- Other dependency versions -->
-        <maven.archiver.version>3.0.0</maven.archiver.version>
-        <plexus.archiver.version>3.0.3</plexus.archiver.version>
         <maven.wagon.ssh.version>2.10</maven.wagon.ssh.version>
 
         <wso2.maven.compiler.source>1.6</wso2.maven.compiler.source>
