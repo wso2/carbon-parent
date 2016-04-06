@@ -418,6 +418,8 @@
                         <Service-Component>${service.component}</Service-Component>
                         <Microservices>${microservices}</Microservices>
                         <_dsannotations>${dsannotations}</_dsannotations>
+                        <Startup-Component>${startup.component}</Startup-Component>
+                        <_include>${_include}</_include>
                     </instructions>
                 </configuration>
             </plugin>
