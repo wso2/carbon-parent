@@ -199,6 +199,8 @@
                                 <consoleOutput>true</consoleOutput>
                                 <failsOnError>true</failsOnError>
                                 <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                                <!--Exclude sources-->
+                                <excludes>${maven.checkstyleplugin.excludes}</excludes>
                             </configuration>
                             <goals>
                                 <goal>check</goal>
@@ -346,6 +348,8 @@
                         <threshold>Low</threshold>
                         <xmlOutput>true</xmlOutput>
                         <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
+                        <!--Exclude sources-->
+                        <excludeFilterFile>${mavan.findbugsplugin.exclude.file}</excludeFilterFile>
                     </configuration>
                     <executions>
                         <execution>
@@ -538,7 +542,9 @@
         <clirr.maven.plugin.version>2.7</clirr.maven.plugin.version>
         <apache.source.release.assembly.descriptor.version>1.0.5</apache.source.release.assembly.descriptor.version>
         <maven.checkstyleplugin.version>2.17</maven.checkstyleplugin.version>
+        <maven.checkstyleplugin.excludes></maven.checkstyleplugin.excludes>
         <maven.findbugsplugin.version>3.0.3</maven.findbugsplugin.version>
+        <mavan.findbugsplugin.exclude.file></mavan.findbugsplugin.exclude.file>
 
         <!-- Other dependency versions -->
         <maven.wagon.ssh.version>2.10</maven.wagon.ssh.version>
