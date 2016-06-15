@@ -587,23 +587,23 @@
         <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
         <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
         <maven.invoker.plugin.version>2.0.0</maven.invoker.plugin.version>
-        <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
-        <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
+        <maven.jar.plugin.version>3.0.1</maven.jar.plugin.version>
+        <maven.javadoc.plugin.version>2.10.4</maven.javadoc.plugin.version>
         <maven.plugin.plugin.version>3.4</maven.plugin.plugin.version>
         <maven.remote.resources.plugin.version>1.5</maven.remote.resources.plugin.version>
         <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
-        <maven.resources.plugin.version>2.7</maven.resources.plugin.version>
+        <maven.resources.plugin.version>3.0.1</maven.resources.plugin.version>
         <maven.scm.plugin.version>1.9.4</maven.scm.plugin.version>
         <maven.scm.publish.plugin.version>1.1</maven.scm.publish.plugin.version>
         <maven.site.plugin.version>3.5.1</maven.site.plugin.version>
         <maven.source.plugin.version>3.0.0</maven.source.plugin.version>
         <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
-        <apache.rat.plugin.version>0.11</apache.rat.plugin.version>
+        <apache.rat.plugin.version>0.12</apache.rat.plugin.version>
         <clirr.maven.plugin.version>2.7</clirr.maven.plugin.version>
         <apache.source.release.assembly.descriptor.version>1.0.5</apache.source.release.assembly.descriptor.version>
         <maven.checkstyleplugin.version>2.17</maven.checkstyleplugin.version>
         <maven.findbugsplugin.version>3.0.3</maven.findbugsplugin.version>
-        <maven.jacoco.plugin.version>0.7.6.201602180812</maven.jacoco.plugin.version>
+        <maven.jacoco.plugin.version>0.7.7.201606060606</maven.jacoco.plugin.version>
         <maven.buildnumber.plugin.version>1.4</maven.buildnumber.plugin.version>
 
         <!-- Other dependency versions -->
