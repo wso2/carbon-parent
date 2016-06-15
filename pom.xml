@@ -484,6 +484,7 @@
                         <Microservices>${microservices}</Microservices>
                         <_dsannotations>${dsannotations}</_dsannotations>
                         <Startup-Component>${startup.component}</Startup-Component>
+                        <Carbon-Component>${carbon.component}</Carbon-Component>
                         <_include>${_include}</_include>
                         <SCM-Revision>${buildNumber}</SCM-Revision>
                     </instructions>
@@ -503,6 +504,7 @@
                 <configuration>
                     <doCheck>false</doCheck>
                     <doUpdate>false</doUpdate>
+                    <revisionOnScmFailure>${maven.build.timestamp}</revisionOnScmFailure>
                 </configuration>
             </plugin>
             <plugin>
