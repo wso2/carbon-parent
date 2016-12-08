@@ -580,6 +580,7 @@
         <wso2.maven.compiler.target>1.8</wso2.maven.compiler.target>
         <sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
         <project.scm.id>my-scm-server</project.scm.id>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!--Maven bundle plugin configuration -->
         <maven.bundle.plugin.version>3.0.1</maven.bundle.plugin.version>
