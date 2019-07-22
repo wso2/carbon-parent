@@ -14,14 +14,12 @@
     KIND, either express or implied.  See the License for the
     specific language governing permissions and limitations
     under the License.-->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2</groupId>
     <artifactId>wso2</artifactId>
     <version>1.2-SNAPSHOT</version>
     <packaging>pom</packaging>
-
     <name>WSO2 Inc</name>
     <description>
         WSO2 is an open source application development software company focused on providing service-oriented
@@ -38,7 +36,6 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
-
     <developers>
         <developer>
             <name>WSO2 Developer</name>
@@ -47,7 +44,6 @@
             <organizationUrl>http://www.wso2.org/</organizationUrl>
         </developer>
     </developers>
-
     <repositories>
         <!-- WSO2 released artifact repository -->
         <repository>
@@ -60,7 +56,6 @@
                 <checksumPolicy>ignore</checksumPolicy>
             </releases>
         </repository>
-
         <!-- WSO2 Snapshot artifact repository -->
         <repository>
             <id>wso2.snapshots</id>
@@ -74,7 +69,6 @@
                 <enabled>false</enabled>
             </releases>
         </repository>
-
         <repository>
             <id>wso2-nexus</id>
             <name>WSO2 internal Repository</name>
@@ -86,7 +80,6 @@
             </releases>
         </repository>
     </repositories>
-
     <pluginRepositories>
         <pluginRepository>
             <id>wso2.releases</id>
@@ -98,7 +91,6 @@
                 <checksumPolicy>ignore</checksumPolicy>
             </releases>
         </pluginRepository>
-
         <pluginRepository>
             <id>wso2.snapshots</id>
             <name>WSO2 Snapshot Repository</name>
@@ -112,7 +104,6 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
-
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>
@@ -125,7 +116,6 @@
             <url>https://maven.wso2.org/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
-
     <mailingLists>
         <mailingList>
             <name>WSO2 Dev List</name>
@@ -135,14 +125,12 @@
             <archive>http://mail.wso2.org/mailarchive/dev/</archive>
         </mailingList>
     </mailingLists>
-
     <scm>
         <connection>scm:git:https://github.com/wso2/carbon-parent.git</connection>
         <url>https://github.com/wso2/carbon-parent.git</url>
         <developerConnection>scm:git:https://github.com/wso2/carbon-parent.git</developerConnection>
-      <tag>carbon-parent-1</tag>
-  </scm>
-
+        <tag>carbon-parent-1</tag>
+    </scm>
     <build>
         <pluginManagement>
             <plugins>
@@ -266,18 +254,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
                     <version>${maven.site.plugin.version}</version>
-                    <dependencies><!-- TODO remove when upgrading m-site-p to 3.4.1: see MSITE-724 -->
-                        <dependency>
-                            <groupId>org.apache.maven</groupId>
-                            <artifactId>maven-archiver</artifactId>
-                            <version>2.5</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-archiver</artifactId>
-                            <version>2.4.4</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -322,7 +298,6 @@
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <id>wso2-release</id>
@@ -337,7 +312,7 @@
                             <dependency>
                                 <groupId>org.apache.apache.resources</groupId>
                                 <artifactId>apache-source-release-assembly-descriptor</artifactId>
-                                <version>1.0.4</version>
+                                <version>1.0.6</version>
                             </dependency>
                         </dependencies>
                         <executions>
@@ -409,36 +384,35 @@
             </build>
         </profile>
     </profiles>
-
     <properties>
-        <wso2.maven.compiler.source>1.7</wso2.maven.compiler.source>
-        <wso2.maven.compiler.target>1.7</wso2.maven.compiler.target>
+        <wso2.maven.compiler.source>1.8</wso2.maven.compiler.source>
+        <wso2.maven.compiler.target>1.8</wso2.maven.compiler.target>
         <sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
         <project.scm.id>my-scm-server</project.scm.id>
-        <maven.assembly.plugin.version>2.5.1</maven.assembly.plugin.version>
-        <maven.antrun.plugin.version>1.7</maven.antrun.plugin.version>
-        <maven.clean.plugin.version>2.6.1</maven.clean.plugin.version>
-        <maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
-        <maven.dependency.plugin.version>2.9</maven.dependency.plugin.version>
+        <maven.assembly.plugin.version>3.1.1</maven.assembly.plugin.version>
+        <maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
+        <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
         <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
-        <maven.docck.plugin.version>1.0</maven.docck.plugin.version>
-        <maven.enforcer.plugin.version>1.3.1</maven.enforcer.plugin.version>
-        <maven.failsafe.plugin.version>2.18</maven.failsafe.plugin.version>
-        <maven.gpg.plugin.version>1.5</maven.gpg.plugin.version>
+        <maven.docck.plugin.version>1.1</maven.docck.plugin.version>
+        <maven.enforcer.plugin.version>1.4.1</maven.enforcer.plugin.version>
+        <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
+        <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
         <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
-        <maven.invoker.plugin.version>1.9</maven.invoker.plugin.version>
-        <maven.jar.plugin.version>2.5</maven.jar.plugin.version>
-        <maven.javadoc.plugin.version>2.10.1</maven.javadoc.plugin.version>
-        <maven.plugin.plugin.version>3.3</maven.plugin.plugin.version>
-        <maven.release.plugin.version>2.5.1</maven.release.plugin.version>
-        <maven.remote.resources.plugin.version>1.5</maven.remote.resources.plugin.version>
-        <maven.resources.plugin.version>2.7</maven.resources.plugin.version>
-        <maven.scm.plugin.version>1.9.2</maven.scm.plugin.version>
-        <maven.scm.publish.plugin.version>1.1</maven.scm.publish.plugin.version>
-        <maven.site.plugin.version>3.4</maven.site.plugin.version>
-        <maven.source.plugin.version>2.4</maven.source.plugin.version>
-        <maven.surefire.plugin.version>2.18</maven.surefire.plugin.version>
-        <apache.rat.plugin.version>0.11</apache.rat.plugin.version>
-        <clirr.maven.plugin.version>2.6.1</clirr.maven.plugin.version>
+        <maven.invoker.plugin.version>3.2.0</maven.invoker.plugin.version>
+        <maven.jar.plugin.version>3.1.2</maven.jar.plugin.version>
+        <maven.javadoc.plugin.version>3.1.1</maven.javadoc.plugin.version>
+        <maven.plugin.plugin.version>3.6.0</maven.plugin.plugin.version>
+        <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
+        <maven.remote.resources.plugin.version>1.6.0</maven.remote.resources.plugin.version>
+        <maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
+        <maven.scm.plugin.version>1.11.2</maven.scm.plugin.version>
+        <maven.scm.publish.plugin.version>3.0.0</maven.scm.publish.plugin.version>
+        <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
+        <maven.source.plugin.version>3.1.0</maven.source.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <apache.rat.plugin.version>0.13</apache.rat.plugin.version>
+        <clirr.maven.plugin.version>2.8</clirr.maven.plugin.version>
     </properties>
 </project>
