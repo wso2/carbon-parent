@@ -368,7 +368,7 @@
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <version>${maven.javadoc.plugin.version}</version>
                         <configuration>
-                            <sourceFileExcludes>${mavan.javadocplugin.exclude.file.source}</sourceFileExcludes>
+                            <sourceFileExcludes>${maven.javadocplugin.exclude.file.source}</sourceFileExcludes>
                         </configuration>
                         <executions>
                             <execution>
@@ -414,6 +414,7 @@
         <maven.invoker.plugin.version>3.2.0</maven.invoker.plugin.version>
         <maven.jar.plugin.version>3.1.2</maven.jar.plugin.version>
         <maven.javadoc.plugin.version>3.1.1</maven.javadoc.plugin.version>
+        <maven.javadocplugin.exclude.file.source>**/module-info.java</maven.javadocplugin.exclude.file.source>
         <maven.plugin.plugin.version>3.6.0</maven.plugin.plugin.version>
         <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
         <maven.remote.resources.plugin.version>1.6.0</maven.remote.resources.plugin.version>
